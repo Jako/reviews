@@ -20,13 +20,13 @@ $_lang['setting_reviews.ratings_desc']                  = 'The min and max ratin
 $_lang['setting_reviews.resource_aware']                = 'Resource aware';
 $_lang['setting_reviews.resource_aware_desc']           = 'If "Yes" the reviews are aware of a resource.';
 $_lang['setting_reviews.include_resources']             = 'Limit resources';
-$_lang['setting_reviews.include_resources_desc']        = 'Pages that meet this value are displayed will be shown in the  \'resources\' combo box. DThis must be a valid JSON. Default is "[]".';
+$_lang['setting_reviews.include_resources_desc']        = 'Pages that meet this value are displayed will be shown in the \'resources\' combo box. This must be a valid JSON. Default is "[]".';
 $_lang['setting_reviews.use_editor']                    = 'Use rich text editor';
 $_lang['setting_reviews.use_editor_desc']               = 'Use a rich text editor for the reviews.';
 
 $_lang['reviews.review']                                = 'Review';
 $_lang['reviews.reviews']                               = 'Reviews';
-$_lang['reviews.reviews_desc']                          = 'Mange all reviews.';
+$_lang['reviews.reviews_desc']                          = 'Manage all reviews.';
 $_lang['reviews.review_create']                         = 'Create review';
 $_lang['reviews.review_update']                         = 'Update review';
 $_lang['reviews.review_remove']                         = 'Remove review';

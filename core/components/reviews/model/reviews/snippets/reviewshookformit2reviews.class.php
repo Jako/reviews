@@ -15,8 +15,18 @@ class ReviewsHookFormit2Reviews extends ReviewsSnippets
      * @var Array.
      */
     public $properties = [
-        'reviewsAllowOverwrite' => '0',
-        'reviewsAutoPublish' => '0',
+        'reviews'               => '',
+
+        'limit'                 => 0,
+        'where'                 => '{"active": "1"}',
+        'sortby'                => '{"createdon": "DESC"}',
+
+        'tpl'                   => '@FILE elements/chunks/item.chunk.tpl',
+        'tplWrapper'            => '@FILE elements/chunks/wrapper.chunk.tpl',
+        'tplWrapperEmpty'       => '',
+
+        'usePdoTools'           => false,
+        'usePdoElementsPath'    => false
     ];
 
     /**

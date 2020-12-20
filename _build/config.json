@@ -23,6 +23,10 @@
         {
           "name": "reviewsWrapperTpl",
           "file": "wrapper.chunk.tpl"
+        },
+        {
+          "name": "reviewsFormTpl",
+          "file": "form.chunk.tpl"
         }
       ],
       "snippets": [
@@ -66,11 +70,44 @@
               "type": "combo-boolean",
               "value": "0",
               "description": "reviews2formit.hook_reviews_allow_overwrite_desc"
-            },{
+            },
+            {
               "name": "reviewsAutoPublish",
               "type": "combo-boolean",
               "value": "0",
               "description": "reviews2formit.hook_reviews_auto_publish_desc"
+            }
+          ]
+        },
+        {
+          "name": "ReviewGroup",
+          "file": "reviewgroup.snippet.php",
+          "properties": [
+            {
+              "name": "type",
+              "value": "default",
+              "description": "reviewgroup.snippet_type_desc"
+            },
+            {
+              "name": "value",
+              "value": "",
+              "description": "reviewgroup.snippet_value_desc"
+            },
+            {
+              "name": "required",
+              "type": "combo-boolean",
+              "value": "0",
+              "description": "reviewgroup.snippet_required_desc"
+            },
+            {
+              "name": "tpl",
+              "value": "@FILE elements/chunks/formselect.chunk.tpl",
+              "description": "reviewgroup.snippet_tpl_desc"
+            },
+            {
+              "name": "tplWrapper",
+              "value": "@FILE elements/chunks/formoption.chunk.tpl",
+              "description": "reviewgroup.snippet_tplwrapper_desc"
             }
           ]
         }
