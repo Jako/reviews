@@ -80,3 +80,5 @@ $_lang['reviews.average']                               = 'Average';
 $_lang['reviews.title']                                 = 'Review ([[+total]] total)';
 $_lang['reviews.review_title']                          = 'Review [[+idx]] of [[+total]] by';
 $_lang['reviews.no_reviews']                            = 'There no reviews available for this resource.';
+
+$_lang['reviews.hook_error_overwrite']                  = 'There exists already a rating with this name and email address!';
