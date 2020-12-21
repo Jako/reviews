@@ -1,4 +1,4 @@
-<form action="[[~[[*id]]]]" method="post" class="txtbl">
+<form action="[[~[[*id]]]]" method="post">
     <h2>Your Information</h2>
     <div class="form-group">
         <label class="sr-only" for="name">[[%reviews.label_review_name? &namespace=`reviews`]]</label>
