@@ -15,18 +15,8 @@ class ReviewsHookFormit2Reviews extends ReviewsSnippets
      * @var Array.
      */
     public $properties = [
-        'reviews'               => '',
-
-        'limit'                 => 0,
-        'where'                 => '{"active": "1"}',
-        'sortby'                => '{"createdon": "DESC"}',
-
-        'tpl'                   => '@FILE elements/chunks/item.chunk.tpl',
-        'tplWrapper'            => '@FILE elements/chunks/wrapper.chunk.tpl',
-        'tplWrapperEmpty'       => '',
-
-        'usePdoTools'           => false,
-        'usePdoElementsPath'    => false
+        'reviewsAutoPublish' => 0,
+        'reviewsAllowOverwrite' => 0,
     ];
 
     /**
@@ -42,6 +32,7 @@ class ReviewsHookFormit2Reviews extends ReviewsSnippets
 
         $name = $this->getOption('name', $fields, '');
         $email = $this->getOption('email', $fields, '');
+        $new = false;
         if ($name && $email) {
             /** @var ReviewsReview $review */
             if (!$review = $this->modx->getObject('ReviewsReview', [
@@ -60,7 +51,8 @@ class ReviewsHookFormit2Reviews extends ReviewsSnippets
                     'createdon' => time(),
                 ]);
                 $review->save();
-            } elseif ((bool)$this->getProperty('allowOverwrite')) {
+                $new = true;
+            } elseif ((bool)$this->getProperty('reviewsAllowOverwrite')) {
                 $review->fromArray([
                     'city' => $this->getOption('city', $fields, ''),
                     'content' => $this->getOption('content', $fields, ''),
@@ -71,33 +63,42 @@ class ReviewsHookFormit2Reviews extends ReviewsSnippets
             } else {
                 $hook->addError('name', $this->modx->lexicon('reviews.hook_error_overwrite'));
                 $hook->addError('email', $this->modx->lexicon('reviews.hook_error_overwrite'));
-                return false;
             }
 
+            $ratingRange = $this->getRatingRange();
             /** @var ReviewsRating[] $ratings */
             $ratings = $this->modx->getCollection('ReviewsRating', [
                 'active' => true
             ]);
             foreach ($ratings as $rating) {
                 if (isset($fields['rating_' . $rating->get('name')])) {
-                    if (!$reviewRating = $this->modx->getObject('ReviewsReviewRating', [
-                        'review_id' => $review->get('id'),
-                        'rating_id' => $rating->get('id')
-                    ])) {
-                        $reviewRating = $this->modx->newObject('ReviewsReviewRating');
-                        $reviewRating->fromArray([
+                    if (isset($ratingRange[$fields['rating_' . $rating->get('name')]])) {
+                        if (!$reviewRating = $this->modx->getObject('ReviewsReviewRating', [
                             'review_id' => $review->get('id'),
-                            'rating_id' => $rating->get('id'),
+                            'rating_id' => $rating->get('id')
+                        ])) {
+                            $reviewRating = $this->modx->newObject('ReviewsReviewRating');
+                            $reviewRating->fromArray([
+                                'review_id' => $review->get('id'),
+                                'rating_id' => $rating->get('id'),
+                            ]);
+                        }
+                        $reviewRating->fromArray([
+                            'value' => $fields['rating_' . $rating->get('name')]
                         ]);
+                        if (!$hook->hasErrors()) {
+                            $reviewRating->save();
+                        }
+                    } else {
+                        $hook->addError('rating_' . $rating->get('name'), $this->modx->lexicon('reviews.hook_error_rating_range'));
                     }
-                    $reviewRating->fromArray([
-                        'value' => $fields['rating_' . $rating->get('name')]
-                    ]);
-                    $reviewRating->save();
                 }
             }
         }
 
-        return true;
+        if ($hook->hasErrors() && !(bool)$this->getProperty('reviewsAllowOverwrite') && $new) {
+            $review->remove();
+        };
+        return !$hook->hasErrors();
     }
 }

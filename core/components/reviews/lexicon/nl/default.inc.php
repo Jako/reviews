@@ -82,3 +82,4 @@ $_lang['reviews.review_title']                          = 'Beoordeling [[+idx]] 
 $_lang['reviews.no_reviews']                            = 'Er zijn geen beoordelingen voor deze pagina.';
 
 $_lang['reviews.hook_error_overwrite']                  = 'Er is al een recensie met deze naam en dit e-mailadres!';
+$_lang['reviews.hook_error_rating_range']               = 'Helaas ligt de rating buiten het beoordelingsbereik!';

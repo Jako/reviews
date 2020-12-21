@@ -82,3 +82,4 @@ $_lang['reviews.review_title']                          = 'Review [[+idx]] of [[
 $_lang['reviews.no_reviews']                            = 'There no reviews available for this resource.';
 
 $_lang['reviews.hook_error_overwrite']                  = 'There exists already a rating with this name and email address!';
+$_lang['reviews.hook_error_rating_range']               = 'Unfortunately, the rating is outside the rating range!';

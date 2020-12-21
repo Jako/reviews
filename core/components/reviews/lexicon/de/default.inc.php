@@ -82,3 +82,4 @@ $_lang['reviews.review_title'] = 'Rezension [[+idx]] von [[+total]] von';
 $_lang['reviews.no_reviews'] = 'Für diese Ressource sind keine Rezensionen vorhanden.';
 
 $_lang['reviews.hook_error_overwrite'] = 'Es existiert bereits eine Bewertung mit diesem Namen und dieser E-Mail-Adresse!';
+$_lang['reviews.hook_error_rating_range'] = 'Leider liegt die Bewertung außerhalb des Bewertungsbereichs!';
