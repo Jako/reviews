@@ -43,12 +43,7 @@ class ReviewsSnippetReviewGroup extends ReviewsSnippets
         if ($ratingType = $this->modx->getObject('ReviewsRating', [
             'name' => $type
         ])) {
-            $range = explode('||', $this->getOption('ratings'));
-            if (count($range) == 2 && filter_var($range[0], FILTER_VALIDATE_INT) && filter_var($range[2], FILTER_VALIDATE_INT)) {
-                $range = range(intval($range[0]), intval($range[1]));
-            } else {
-                $range = range(1, 5);
-            }
+            $range = $this->getRatingRange();
             $options = [];
             foreach ($range as $rating) {
                 $options[] = $this->getChunk($this->getProperty('tplOption'), [

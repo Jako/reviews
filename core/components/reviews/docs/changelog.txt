@@ -8,9 +8,10 @@ Released: 2020‑05-07
 ----------------------
 - Created an XML Scheme
 - Bugfixes for MySQL STRICT_TRANS_TABLES
-- Default Form Chunk
 - Formit2Reviews Snippet
+- Default FormIt Chunk
 - ReviewGroup Snippet
+- Fixes for missing values in not Fenom based chunks  
 
 ----------------------
 Version: 1.2.0
