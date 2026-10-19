@@ -30,13 +30,10 @@ switch ($options[xPDOTransport::PACKAGE_ACTION]) {
                 $setting->save();
             }
         }
-
         $success = true;
-
         break;
     case xPDOTransport::ACTION_UNINSTALL:
         $success = true;
-
         break;
 }
 
