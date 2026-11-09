@@ -21,6 +21,7 @@ abstract class ReviewsManagerController extends modExtraManagerController
         $this->addCss($this->reviews->config['css_url'] . 'mgr/reviews.css');
 
         $this->addJavascript($this->reviews->config['js_url'] . 'mgr/reviews.js');
+        $this->addJavascript($this->reviews->config['js_url'] . 'mgr/helper/util.js');
 
         $this->addJavascript($this->reviews->config['js_url'] . 'mgr/extras/extras.js');
 

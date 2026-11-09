@@ -11,6 +11,7 @@ Ext.extend(Reviews, Ext.Component, {
     tree    : {},
     panel   : {},
     combo   : {},
+    util    : {},
     config  : {}
 });
 

@@ -302,6 +302,11 @@ Reviews.window.CreateReview = function(config) {
     config = config || {};
 
     Ext.applyIf(config, {
+        keys: [{
+            key: Ext.EventObject.ENTER,
+            fn: Reviews.util.richtextKey,
+            scope: this
+        }],
         width       : 800,
         autoHeight  : true,
         title       : _('reviews.review_create'),
@@ -419,6 +424,7 @@ Reviews.window.CreateReview = function(config) {
     });
 
     Reviews.window.CreateReview.superclass.constructor.call(this, config);
+    Reviews.util.initRichtextKey(this);
 };
 
 Ext.extend(Reviews.window.CreateReview, MODx.Window, {
@@ -452,6 +458,11 @@ Reviews.window.UpdateReview = function(config) {
     config = config || {};
 
     Ext.applyIf(config, {
+        keys: [{
+            key: Ext.EventObject.ENTER,
+            fn: Reviews.util.richtextKey,
+            scope: this
+        }],
         width       : 800,
         autoHeight  : true,
         title       : _('reviews.review_update'),
@@ -573,6 +584,7 @@ Reviews.window.UpdateReview = function(config) {
     });
 
     Reviews.window.UpdateReview.superclass.constructor.call(this, config);
+    Reviews.util.initRichtextKey(this);
 };
 
 Ext.extend(Reviews.window.UpdateReview, MODx.Window, {
