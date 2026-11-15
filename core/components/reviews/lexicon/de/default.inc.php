@@ -18,9 +18,9 @@ $_lang['setting_reviews.branding_url_help_desc'] = 'Die URL der Branding-Hilfesc
 $_lang['setting_reviews.ratings'] = 'Bewertungen';
 $_lang['setting_reviews.ratings_desc'] = 'Die minimale und maximale Bewertung, die abgegeben werden kann. Standard ist "1||5".';
 $_lang['setting_reviews.resource_aware'] = 'Ressourcenbewusst';
-$_lang['setting_reviews.resource_aware_desc'] = 'Wenn "Ja", sind die Bewertungen einer Ressource bewusst.';
+$_lang['setting_reviews.resource_aware_desc'] = 'Wenn „Ja“, sind die Bewertungen einer Ressource bewusst.';
 $_lang['setting_reviews.include_resources'] = 'Ressourcen einschränken';
-$_lang['setting_reviews.include_resources_desc'] = 'Seiten, die diesen Wert erfüllen, werden im Auswahlfeld "Ressourcen" angezeigt. Dies muss ein gültiges JSON sein. Standard ist "[]".';
+$_lang['setting_reviews.include_resources_desc'] = 'Seiten, die diesen Wert erfüllen, werden im Auswahlfeld „Ressourcen“ angezeigt. Dies muss ein gültiges JSON sein. Standard ist "[]".';
 $_lang['setting_reviews.use_editor'] = 'Rich-Text-Editor verwenden';
 $_lang['setting_reviews.use_editor_desc'] = 'Einen Rich-Text-Editor für die Rezensionen verwenden.';
 
